@@ -28,7 +28,7 @@ __*csvtojson:*__ Its a csv parser to convert csv to json or column arrays.
 
   `databsename = process.env.DATABSENAME    // Database we are connecting to`
 
-__*Note: Create a .env file, take the environment variables from .env.example and valorize them properly in order to make a connection to database.
+__*Note: By default there is no .env file. So, after cloning the project create a .env file in the same directory of the project files, take the environment variables from .env.example and valorize them properly in order to make a connection to database.*__
 
 * Line 23 – 38: We have connected to our database “csvtomysql” and created table named “code_challenge” with desired fields according to our code_challenge.csv file.
 * Line 42 – 64 : We fetched code_challenge.csv located in current directory and converted all the data to JSON.
