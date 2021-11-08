@@ -1,6 +1,7 @@
 # Import data from .CSV file into MySQL table using Node.js
 1. Create a node.js project using “npm init” and save your .csv file in the same directory. 
 2. Install two packages “mysql” and “csvtojson” using the following command:
+
 `npm i mysql csvtojson`
 
 __*mysql driver:*__ This is a node.js driver for mysql. It is written in JavaScript, that does not require compiling. We are using it to establish connection with our MYSQL database and perform queries.
@@ -10,11 +11,13 @@ __*csvtojson:*__ Its a csv parser to convert csv to json or column arrays.
 `node index.js`
 ## Explanation of code:
 * At the first two lines of code we Import  mysql and csvtojson.
+
 `const csvtojson = require('csvtojson')`
 
 `const mysql = require("mysql")`
 
 * Line 10 – 23 : We created a connection to our database.
+* 
 `hostname = process.env.HOSTNAME,` 
 
 `username = process.env.USERNAME,         // Username of Mysql local server`
