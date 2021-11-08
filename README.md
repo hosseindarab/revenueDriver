@@ -2,7 +2,7 @@
 1. Create a node.js project using “npm init” and save your .csv file in the same directory. 
 2. Install two packages “mysql” and “csvtojson” using the following command:
 
-`npm i mysql csvtojson`
+`npm i mysql2 csvtojson`
 
 __*mysql driver:*__ This is a node.js driver for mysql. It is written in JavaScript, that does not require compiling. We are using it to establish connection with our MYSQL database and perform queries.
 
@@ -12,11 +12,11 @@ __*csvtojson:*__ Its a csv parser to convert csv to json or column arrays.
 
     `node index.js`
 ## Explanation of code:
-* At the first two lines of code we Import  mysql and csvtojson.
+* At the first two lines of code we Import  mysql2 and csvtojson.
 
   `const csvtojson = require('csvtojson')`
 
-  `const mysql = require("mysql")`
+  `const mysql = require("mysql2")`
 
 * Line 10 – 23 : We created a connection to our database.
 
