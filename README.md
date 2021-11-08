@@ -10,13 +10,13 @@ __*csvtojson:*__ Its a csv parser to convert csv to json or column arrays.
 `node index.js`
 ## Explanation of code:
 * At the first two lines of code we Import  mysql and csvtojson.
-`const csvtojson = require('csvtojson')
-const mysql = require("mysql")`
+`const csvtojson = require('csvtojson')`
+`const mysql = require("mysql")`
 * Line 10 – 23 : We created a connection to our database.
-`hostname = process.env.HOSTNAME, 
-username = process.env.USERNAME,         // Username of Mysql local server 
-password = process.env.PASSWORD,         // Password of Mysql local server
-databsename = process.env.DATABSENAME    // Database we are connecting to`
+`hostname = process.env.HOSTNAME,` 
+`username = process.env.USERNAME,         // Username of Mysql local server`
+`password = process.env.PASSWORD,         // Password of Mysql local server`
+`databsename = process.env.DATABSENAME    // Database we are connecting to`
 __*Note: Create a .env file, take the environment variables from .env.example and valorize them properly in order to make a connection to database.
 
 * Line 23 – 38: We have connected to our database “csvtomysql” and created table named “code_challenge” with desired fields according to our code_challenge.csv file.
