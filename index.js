@@ -1,27 +1,29 @@
 // Importing mysql and csvtojson packages
 // Requiring module
 const csvtojson = require('csvtojson');
-const mysql = require("mysql");
+const mysql = require("mysql2");
+require('dotenv').config();
 
 // Database credentials
 const hostname = process.env.HOSTNAME,
-	username = process.env.USERNAME,
+	username = "root",
 	password = process.env.PASSWORD,
 	databsename = process.env.DATABSENAME
 
 // Establish connection to the database
-let con = mysql.createConnection({
-	host: hostname,
-	user: username,
-	password: password,
-	database: databsename,
-});
+let pool =  mysql.createPool({
+	connectionLimit : 10,
+	host            : hostname,
+	user            : username,
+	password        : password,
+	database        : databsename
+  });
 
-con.connect((err) => {
+  pool.getConnection((err, connection) => {
 	if (err) return console.error(
 			'error: ' + err.message);
 
-	con.query("DROP TABLE code_challenge",
+	pool.query("DROP TABLE code_challenge",
 		(err, drop) => {
 
 		// Query to create table "code_challenge"
@@ -32,7 +34,7 @@ con.connect((err) => {
 		"True_Revenue decimal, Coverage decimal, Ctr float)"
 
 		// Creating table "code_challenge"
-		con.query(createStatament, (err, drop) => {
+		pool.query(createStatament, (err, drop) => {
 			if (err)
 				console.log("ERROR: ", err);
 		});
@@ -60,16 +62,15 @@ csvtojson().fromFile(fileName).then(source => {
 		Impression_Rpm = source[i]["Impression_Rpm"],
 		True_Revenue = source[i]["True_Revenue"],
 		Coverage = source[i]["Coverage"],
-		Ctr = source[i]["Ctr"],
+		Ctr = source[i]["Ctr"]
 
-		var insertStatement =
-		`INSERT INTO code_challenge values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+		var insertStatement =`INSERT INTO code_challenge values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 		var items = [Date, Ad_Unit_Name, Ad_Unit_ID, Typetag, Revenue_Source, Market, Queries, Clicks, Impressions, Page_Rpm,
 					Impression_Rpm, True_Revenue, Coverage, Ctr];
 
 		// Inserting data of current row
 		// into database
-		con.query(insertStatement, items,
+		pool.query(insertStatement, items,
 			(err, results, fields) => {
 			if (err) {
 				console.log(
