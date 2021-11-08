@@ -5,6 +5,7 @@
 `npm i mysql csvtojson`
 
 __*mysql driver:*__ This is a node.js driver for mysql. It is written in JavaScript, that does not require compiling. We are using it to establish connection with our MYSQL database and perform queries.
+
 __*csvtojson:*__ Its a csv parser to convert csv to json or column arrays.
 
 3. In order to run the program run index.js file using the following command:
@@ -12,19 +13,19 @@ __*csvtojson:*__ Its a csv parser to convert csv to json or column arrays.
 ## Explanation of code:
 * At the first two lines of code we Import  mysql and csvtojson.
 
-`const csvtojson = require('csvtojson')`
+  `const csvtojson = require('csvtojson')`
 
-`const mysql = require("mysql")`
+  `const mysql = require("mysql")`
 
 * Line 10 – 23 : We created a connection to our database.
-* 
-`hostname = process.env.HOSTNAME,` 
 
-`username = process.env.USERNAME,         // Username of Mysql local server`
+  `hostname = process.env.HOSTNAME,` 
 
-`password = process.env.PASSWORD,         // Password of Mysql local server`
+  `username = process.env.USERNAME,         // Username of Mysql local server`
 
-`databsename = process.env.DATABSENAME    // Database we are connecting to`
+  `password = process.env.PASSWORD,         // Password of Mysql local server`
+
+  `databsename = process.env.DATABSENAME    // Database we are connecting to`
 
 __*Note: Create a .env file, take the environment variables from .env.example and valorize them properly in order to make a connection to database.
 
