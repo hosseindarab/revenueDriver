@@ -9,7 +9,8 @@ __*mysql driver:*__ This is a node.js driver for mysql. It is written in JavaScr
 __*csvtojson:*__ Its a csv parser to convert csv to json or column arrays.
 
 3. In order to run the program run index.js file using the following command:
-`node index.js`
+
+    `node index.js`
 ## Explanation of code:
 * At the first two lines of code we Import  mysql and csvtojson.
 
