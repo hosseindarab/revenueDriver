@@ -33,8 +33,8 @@ __*Note: By default there is no .env file. So, after cloning the project create 
 * Line 23 – 38: We have connected to our database “csvtomysql” and created table named “code_challenge” with desired fields according to our code_challenge.csv file.
 * Line 42 – 64 : We fetched code_challenge.csv located in current directory and converted all the data to JSON.
   * At line 43 all data in code_challenge.csv is converted to JSON and stored in variable “source”
-  * Then we loop through each each row and extracted Name, Email, Age and City value from that row.
-   * At line 53, we created a array of values in Date, Ad_Unit_Name, Ad_Unit_ID and Typetag i.e. the column data of ith row.
+  * Then we loop through each row and extracted Date, Ad_Unit_Name, Ad_Unit_ID and Typetag i.e. value from that row.
+   * At line 53, we created an array of values in Date, Ad_Unit_Name, Ad_Unit_ID and Typetag i.e. the column data of ith row.
    * Then we inserted that data into table using  query “INSERT INTO code_challenge values(Date, Ad_Unit_Name, Ad_Unit_ID, Typetag, ...)”
    * At line 62 we are showing the inserted data to console. 
 
